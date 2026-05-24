@@ -2,13 +2,13 @@ program SistemaVendas;
 
 uses
   Vcl.Forms,
-  frmPrincipal in 'View\frmPrincipal.pas' {Form1};
+  frmPrincipal in 'View\frmPrincipal.pas' {U_Principal};
 
 {$R *.res}
 
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
-  Application.CreateForm(TForm1, Form1);
+  Application.CreateForm(TU_Principal, U_Principal);
   Application.Run;
 end.
