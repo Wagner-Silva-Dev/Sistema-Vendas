@@ -1,0 +1,31 @@
+# Delphi compilados
+*.dcu
+*.dcp
+*.dcpil
+*.dpu
+*.exe
+*.dll
+*.bpl
+*.bpi
+*.map
+*.drc
+
+# Arquivos locais do IDE
+*.local
+*.dsk
+*.identcache
+*.tvsconfig
+*.deployproj
+
+# Histórico do IDE
+__history/
+__recovery/
+
+# Pastas de output do compilador
+Win32/
+Win64/
+bin/
+DCU/
+
+# Backup
+*.~*
