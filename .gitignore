@@ -29,3 +29,6 @@ DCU/
 
 # Backup
 *.~*
+
+# Recursos gerados
+*.res
