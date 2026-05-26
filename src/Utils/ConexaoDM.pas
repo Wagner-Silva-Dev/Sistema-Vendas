@@ -10,7 +10,7 @@ uses
   FireDAC.Phys.MySQL, FireDAC.Phys.MySQLDef,
   FireDAC.VCLUI.Wait, FireDAC.Comp.UI,
   Data.DB, FireDAC.Comp.Client,
-  IniFiles, Vcl.Forms, dialogs;
+  IniFiles, Vcl.Forms, Vcl.Dialogs;
 
 type
   TDM_Conexao = class(TDataModule)
@@ -29,6 +29,9 @@ var
 
 implementation
 
+  uses
+    System.UITypes;
+
 {%CLASSGROUP 'Vcl.Controls.TControl'}
 {$R *.dfm}
 
@@ -40,14 +43,18 @@ begin
   caminho := ExtractFilePath(Application.ExeName) + 'config.ini';
 
   if not FileExists(caminho) then
-    raise Exception.Create('Arquivo config.ini não encontrado.');
+  begin
+      MessageDlg('Não foi possivel se conectar ao banco de dados!!!', mtWarning, [mbOK], 0);
+      Application.Terminate;
+      Exit;
+  end;
 
   try
     IniConf := TIniFile.Create(caminho);
     try
       Database.Params.Values['Server']    := IniConf.ReadString('Database', 'ip_servidor', 'localhost');
       Database.Params.Values['Port']      := IniConf.ReadString('Database', 'porta',       '3306');
-      Database.Params.Values['Database']  := IniConf.ReadString('Database', 'caminho',     '');
+      Database.Params.Values['Database']  := IniConf.ReadString('Database', 'banco',     '');
       Database.Params.Values['User_Name'] := IniConf.ReadString('Database', 'usuario',     'root');
       Database.Params.Values['Password']  := IniConf.ReadString('Database', 'senha',       '');
       Database.LoginPrompt := False;
@@ -56,8 +63,15 @@ begin
       IniConf.Free;
     end;
   except
-    on E: Exception do
-      ShowMessage('Erro ao conectar: ' + E.Message);
+  on E: Exception do
+    begin
+      MessageDlg(
+        'Erro ao conectar com o banco de dados MySQL.' + #13#10 +
+        'Verifique o arquivo config.ini.' + #13#10#13#10 +
+        'Detalhes: ' + E.Message, mtWarning, [mbOK], 0 );
+      Application.Terminate;
+    end;
+
   end;
 end;
 
