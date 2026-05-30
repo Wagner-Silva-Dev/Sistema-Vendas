@@ -40,11 +40,13 @@ var
   IniConf: TIniFile;
   caminho: string;
 begin
+  FDPhysMySQLDriverLink.VendorLib := ExtractFilePath(Application.ExeName) + 'libmysql.dll';
+
   caminho := ExtractFilePath(Application.ExeName) + 'config.ini';
 
   if not FileExists(caminho) then
   begin
-      MessageDlg('Não foi possivel se conectar ao banco de dados!!!', mtWarning, [mbOK], 0);
+      MessageDlg('Nï¿½o foi possivel se conectar ao banco de dados!!!', mtWarning, [mbOK], 0);
       Application.Terminate;
       Exit;
   end;
