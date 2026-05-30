@@ -4,7 +4,8 @@ object DM_Conexao: TDM_Conexao
   Width = 640
   object Database: TFDConnection
     Params.Strings = (
-      'DriverID=MySQL')
+      'DriverID=MySQL'
+      'User_Name=root')
     Left = 64
     Top = 56
   end

@@ -18,10 +18,11 @@ type
     FDPhysMySQLDriverLink: TFDPhysMySQLDriverLink;
     WaitCursor: TFDGUIxWaitCursor;
     procedure DataModuleCreate(Sender: TObject);
+
   private
-    { Private declarations }
+    procedure CarregarIni;
   public
-    { Public declarations }
+    function TestarConexao : Boolean;
   end;
 
 var
@@ -30,12 +31,12 @@ var
 implementation
 
   uses
-    System.UITypes;
+    System.UITypes, frmConexaoErro;
 
 {%CLASSGROUP 'Vcl.Controls.TControl'}
 {$R *.dfm}
 
-procedure TDM_Conexao.DataModuleCreate(Sender: TObject);
+procedure TDM_Conexao.CarregarIni;
 var
   IniConf: TIniFile;
   caminho: string;
@@ -46,12 +47,9 @@ begin
 
   if not FileExists(caminho) then
   begin
-      MessageDlg('N�o foi possivel se conectar ao banco de dados!!!', mtWarning, [mbOK], 0);
-      Application.Terminate;
-      Exit;
+      raise Exception.Create('Arquivo config.ini n�o encontrado em ' + caminho);
   end;
 
-  try
     IniConf := TIniFile.Create(caminho);
     try
       Database.Params.Values['Server']    := IniConf.ReadString('Database', 'ip_servidor', 'localhost');
@@ -60,20 +58,45 @@ begin
       Database.Params.Values['User_Name'] := IniConf.ReadString('Database', 'usuario',     'root');
       Database.Params.Values['Password']  := IniConf.ReadString('Database', 'senha',       '');
       Database.LoginPrompt := False;
-      Database.Connected   := True;
     finally
       IniConf.Free;
     end;
-  except
-  on E: Exception do
-    begin
-      MessageDlg(
-        'Erro ao conectar com o banco de dados MySQL.' + #13#10 +
-        'Verifique o arquivo config.ini.' + #13#10#13#10 +
-        'Detalhes: ' + E.Message, mtWarning, [mbOK], 0 );
-      Application.Terminate;
-    end;
+end;
 
+procedure TDM_Conexao.DataModuleCreate(Sender: TObject);
+var
+  FrmErro : TU_ConexaoErro;
+begin
+  try
+      TestarConexao;
+  except
+    on E : Exception do
+    begin
+      FrmErro := TU_ConexaoErro.Create(nil);
+      try
+        FrmErro.Lbl_MensagemErroDatabase.Caption := 'N�o foi poss�vel se conectar ao Banco de Dados' + sLineBreak +
+          'Poss�vel causa: '+ E.Message;
+        FrmErro.ShowModal;
+      finally
+        FrmErro.Free;
+      end;
+    end;
+  end;
+end;
+
+function TDM_Conexao.TestarConexao: Boolean;
+begin
+  Result := False;
+  try
+    if Database.Connected then
+      Database.Connected := False;
+
+    CarregarIni;
+    Database.Connected := True;
+    Result := True;
+  except
+    on E: Exception do
+      raise;
   end;
 end;
 
