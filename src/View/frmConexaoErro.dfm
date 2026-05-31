@@ -23,8 +23,6 @@ object U_ConexaoErro: TU_ConexaoErro
     Height = 118
     Align = alClient
     TabOrder = 0
-    ExplicitWidth = 559
-    ExplicitHeight = 92
     object Lbl_MensagemErroDatabase: TLabel
       AlignWithMargins = True
       Left = 4
@@ -41,10 +39,8 @@ object U_ConexaoErro: TU_ConexaoErro
       Font.Style = []
       ParentFont = False
       WordWrap = True
-      ExplicitLeft = 3
-      ExplicitTop = 2
-      ExplicitWidth = 551
-      ExplicitHeight = 84
+      ExplicitLeft = 5
+      ExplicitTop = 6
     end
   end
   object PN_Rodape: TPanel
@@ -54,11 +50,9 @@ object U_ConexaoErro: TU_ConexaoErro
     Height = 41
     Align = alBottom
     TabOrder = 1
-    ExplicitTop = 133
-    ExplicitWidth = 559
-    object Btn_FecharSistema: TBitBtn
+    object Btn_ConfiguraConexao: TBitBtn
       AlignWithMargins = True
-      Left = 157
+      Left = 309
       Top = 5
       Width = 144
       Height = 31
@@ -67,9 +61,9 @@ object U_ConexaoErro: TU_ConexaoErro
       Margins.Right = 4
       Margins.Bottom = 4
       Align = alLeft
-      Caption = 'Fechar Sistema'
+      Caption = 'Configurar Conex'#227'o'
       TabOrder = 1
-      OnClick = Btn_FecharSistemaClick
+      OnClick = Btn_ConfiguraConexaoClick
     end
     object Btn_TentarNovamente: TBitBtn
       AlignWithMargins = True
@@ -86,6 +80,21 @@ object U_ConexaoErro: TU_ConexaoErro
       TabOrder = 0
       OnClick = Btn_TentarNovamenteClick
     end
+    object Btn_FecharSistema: TBitBtn
+      AlignWithMargins = True
+      Left = 157
+      Top = 5
+      Width = 144
+      Height = 31
+      Margins.Left = 4
+      Margins.Top = 4
+      Margins.Right = 4
+      Margins.Bottom = 4
+      Align = alLeft
+      Caption = 'Fechar Sistema'
+      TabOrder = 2
+      OnClick = Btn_FecharSistemaClick
+    end
   end
   object PN_Topo: TPanel
     Left = 0
@@ -95,7 +104,6 @@ object U_ConexaoErro: TU_ConexaoErro
     Align = alTop
     BevelInner = bvRaised
     TabOrder = 2
-    ExplicitWidth = 559
     object Lbl_MensagemErro: TLabel
       AlignWithMargins = True
       Left = 5

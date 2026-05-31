@@ -4,7 +4,8 @@ uses
   Vcl.Forms,
   frmPrincipal in 'View\frmPrincipal.pas' {U_Principal},
   ConexaoDM in 'Utils\ConexaoDM.pas' {DM_Conexao: TDataModule},
-  frmConexaoErro in 'View\frmConexaoErro.pas' {U_ConexaoErro};
+  frmConexaoErro in 'View\frmConexaoErro.pas' {U_ConexaoErro},
+  frmConfiguraConexao in 'View\frmConfiguraConexao.pas' {U_ConfiguraConexao};
 
 {$R *.res}
 

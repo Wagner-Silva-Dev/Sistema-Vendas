@@ -1,4 +1,4 @@
-unit frmConexaoErro;
+ï»¿unit frmConexaoErro;
 
 interface
 
@@ -9,14 +9,17 @@ uses
 type
   TU_ConexaoErro = class(TForm)
     Lbl_MensagemErro: TLabel;
-    Btn_FecharSistema: TBitBtn;
+    Btn_ConfiguraConexao: TBitBtn;
     PN_Principal: TPanel;
     PN_Rodape: TPanel;
     Btn_TentarNovamente: TBitBtn;
     Lbl_MensagemErroDatabase: TLabel;
     PN_Topo: TPanel;
-    procedure Btn_FecharSistemaClick(Sender: TObject);
+    Btn_FecharSistema: TBitBtn;
+
     procedure Btn_TentarNovamenteClick(Sender: TObject);
+    procedure Btn_FecharSistemaClick(Sender: TObject);
+    procedure Btn_ConfiguraConexaoClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -29,9 +32,14 @@ var
 implementation
 
 uses
-  ConexaoDM;
+  ConexaoDM, frmConfiguraConexao;
 
 {$R *.dfm}
+
+procedure TU_ConexaoErro.Btn_ConfiguraConexaoClick(Sender: TObject);
+begin
+  TU_ConfiguraConexao.Create(Self).ShowModal;
+end;
 
 procedure TU_ConexaoErro.Btn_FecharSistemaClick(Sender: TObject);
 begin
@@ -46,9 +54,9 @@ begin
   except
     on E: Exception do
     begin
-      Lbl_MensagemErroDatabase.Caption := 'Não foi possível se conectar ao Banco de Dados' + sLineBreak +
-          'Possível causa: '+ E.Message;;
-      MessageDlg('Não foi possivel se conectar ao banco de dados', mtError, [mbok], 0);
+      Lbl_MensagemErroDatabase.Caption := 'NÃ£o foi possÃ­vel se conectar ao Banco de Dados' + sLineBreak +
+          'PossÃ­vel causa: '+ E.Message;
+      MessageDlg('NÃ£o foi possivel se conectar ao banco de dados', mtError, [mbok], 0);
     end;
   end;
 

@@ -1,4 +1,4 @@
-unit ConexaoDM;
+﻿unit ConexaoDM;
 
 interface
 
@@ -47,7 +47,7 @@ begin
 
   if not FileExists(caminho) then
   begin
-      raise Exception.Create('Arquivo config.ini n�o encontrado em ' + caminho);
+      raise Exception.Create('Arquivo config.ini não encontrado em ' + caminho);
   end;
 
     IniConf := TIniFile.Create(caminho);
@@ -72,10 +72,10 @@ begin
   except
     on E : Exception do
     begin
-      FrmErro := TU_ConexaoErro.Create(nil);
+      FrmErro := TU_ConexaoErro.Create(Application);
       try
-        FrmErro.Lbl_MensagemErroDatabase.Caption := 'N�o foi poss�vel se conectar ao Banco de Dados' + sLineBreak +
-          'Poss�vel causa: '+ E.Message;
+        FrmErro.Lbl_MensagemErroDatabase.Caption := 'Não foi possível se conectar ao Banco de Dados' + sLineBreak +
+          'Possível causa: '+ E.Message;
         FrmErro.ShowModal;
       finally
         FrmErro.Free;
