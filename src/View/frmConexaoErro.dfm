@@ -62,7 +62,7 @@ object U_ConexaoErro: TU_ConexaoErro
       Margins.Bottom = 4
       Align = alLeft
       Caption = 'Configurar Conex'#227'o'
-      TabOrder = 1
+      TabOrder = 0
       OnClick = Btn_ConfiguraConexaoClick
     end
     object Btn_TentarNovamente: TBitBtn
@@ -77,7 +77,7 @@ object U_ConexaoErro: TU_ConexaoErro
       Margins.Bottom = 4
       Align = alLeft
       Caption = 'Tentar Novamente'
-      TabOrder = 0
+      TabOrder = 1
       OnClick = Btn_TentarNovamenteClick
     end
     object Btn_FecharSistema: TBitBtn

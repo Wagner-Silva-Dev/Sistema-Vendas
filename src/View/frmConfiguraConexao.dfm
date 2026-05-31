@@ -12,8 +12,10 @@ object U_ConfiguraConexao: TU_ConfiguraConexao
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
+  KeyPreview = True
   Position = poMainFormCenter
   OnCreate = FormCreate
+  OnKeyPress = FormKeyPress
   TextHeight = 15
   object PN_Topo: TPanel
     Left = 0
@@ -21,7 +23,7 @@ object U_ConfiguraConexao: TU_ConfiguraConexao
     Width = 684
     Height = 41
     Align = alTop
-    TabOrder = 0
+    TabOrder = 1
     object Lbl_ConfiguraArquivo: TLabel
       AlignWithMargins = True
       Left = 9
@@ -52,8 +54,8 @@ object U_ConfiguraConexao: TU_ConfiguraConexao
     Width = 684
     Height = 41
     Align = alBottom
-    TabOrder = 1
-    object Btn_FecharSistema: TBitBtn
+    TabOrder = 2
+    object Btn_Voltar: TBitBtn
       AlignWithMargins = True
       Left = 5
       Top = 5
@@ -64,10 +66,9 @@ object U_ConfiguraConexao: TU_ConfiguraConexao
       Margins.Right = 4
       Margins.Bottom = 4
       Align = alLeft
-      Caption = 'Fechar Sistema'
-      TabOrder = 0
-      OnClick = Btn_FecharSistemaClick
-      ExplicitLeft = 157
+      Caption = 'Voltar'
+      TabOrder = 1
+      OnClick = Btn_VoltarClick
     end
     object Btn_SalvarConexao: TBitBtn
       AlignWithMargins = True
@@ -81,10 +82,8 @@ object U_ConfiguraConexao: TU_ConfiguraConexao
       Margins.Bottom = 4
       Align = alLeft
       Caption = 'Criar Conex'#227'o'
-      TabOrder = 1
+      TabOrder = 0
       OnClick = Btn_SalvarConexaoClick
-      ExplicitLeft = 357
-      ExplicitTop = 7
     end
   end
   object PN_Principal: TPanel
@@ -93,7 +92,7 @@ object U_ConfiguraConexao: TU_ConfiguraConexao
     Width = 684
     Height = 168
     Align = alClient
-    TabOrder = 2
+    TabOrder = 0
     DesignSize = (
       684
       168)

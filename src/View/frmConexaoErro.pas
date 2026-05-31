@@ -37,8 +37,15 @@ uses
 {$R *.dfm}
 
 procedure TU_ConexaoErro.Btn_ConfiguraConexaoClick(Sender: TObject);
+var
+  FrmConfigConexao : TU_ConfiguraConexao;
 begin
-  TU_ConfiguraConexao.Create(Self).ShowModal;
+  FrmConfigConexao := TU_ConfiguraConexao.Create(Self);
+  try
+    FrmConfigConexao.ShowModal;
+  finally
+    FrmConfigConexao.Free;
+  end;
 end;
 
 procedure TU_ConexaoErro.Btn_FecharSistemaClick(Sender: TObject);

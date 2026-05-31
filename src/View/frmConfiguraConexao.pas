@@ -22,11 +22,12 @@ type
     EDT_Usuario: TEdit;
     Lbl_Senha: TLabel;
     EDT_Senha: TEdit;
-    Btn_FecharSistema: TBitBtn;
+    Btn_Voltar: TBitBtn;
     Btn_SalvarConexao: TBitBtn;
-    procedure Btn_FecharSistemaClick(Sender: TObject);
+    procedure Btn_VoltarClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure Btn_SalvarConexaoClick(Sender: TObject);
+    procedure FormKeyPress(Sender: TObject; var Key: Char);
   private
     caminho : string;
     procedure SalvarIni;
@@ -58,7 +59,7 @@ begin
 end;
 
 
-procedure TU_ConfiguraConexao.Btn_FecharSistemaClick(Sender: TObject);
+procedure TU_ConfiguraConexao.Btn_VoltarClick(Sender: TObject);
 begin
   ModalResult := mrCancel;
 end;
@@ -90,6 +91,15 @@ begin
     EDT_Senha.Text      := IniConf.ReadString('Database', 'senha',       '');
   finally
     IniConf.Free;
+  end;
+end;
+
+procedure TU_ConfiguraConexao.FormKeyPress(Sender: TObject; var Key: Char);
+begin
+  if Key = #13 then
+  begin
+    Key := #0;
+    Perform(CM_DIALOGKEY, VK_TAB, 0);
   end;
 end;
 
