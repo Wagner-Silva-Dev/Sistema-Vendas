@@ -135,7 +135,7 @@
             <Form>U_Principal</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="Utils\ConexaoDM.pas">
+        <DCCReference Include="Utils\DMConexao.pas">
             <Form>DM_Conexao</Form>
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>

@@ -1,4 +1,4 @@
-﻿unit ConexaoDM;
+﻿unit DMConexao;
 
 interface
 
@@ -65,14 +65,14 @@ end;
 
 procedure TDM_Conexao.DataModuleCreate(Sender: TObject);
 var
-  FrmErro : TU_ConexaoErro;
+  FrmErro : TF_ConexaoErro;
 begin
   try
       TestarConexao;
   except
     on E : Exception do
     begin
-      FrmErro := TU_ConexaoErro.Create(Application);
+      FrmErro := TF_ConexaoErro.Create(Application);
       try
         FrmErro.Lbl_MensagemErroDatabase.Caption := 'Não foi possível se conectar ao Banco de Dados' + sLineBreak +
           'Possível causa: '+ E.Message;
@@ -87,17 +87,14 @@ end;
 function TDM_Conexao.TestarConexao: Boolean;
 begin
   Result := False;
-  try
+
     if Database.Connected then
       Database.Connected := False;
 
     CarregarIni;
     Database.Connected := True;
+
     Result := True;
-  except
-    on E: Exception do
-      raise;
-  end;
 end;
 
 end.
