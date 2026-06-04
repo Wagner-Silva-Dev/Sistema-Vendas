@@ -14,7 +14,7 @@ object F_ConexaoErro: TF_ConexaoErro
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
-  Position = poDesktopCenter
+  Position = poMainFormCenter
   TextHeight = 15
   object PN_Principal: TPanel
     Left = 0
@@ -22,13 +22,14 @@ object F_ConexaoErro: TF_ConexaoErro
     Width = 600
     Height = 118
     Align = alClient
+    BevelOuter = bvNone
     TabOrder = 0
     object Lbl_MensagemErroDatabase: TLabel
       AlignWithMargins = True
-      Left = 4
-      Top = 4
-      Width = 592
-      Height = 110
+      Left = 3
+      Top = 3
+      Width = 594
+      Height = 112
       Align = alClient
       AutoSize = False
       Caption = 'Mensagem de erro ao conectar com o banco'
@@ -41,6 +42,8 @@ object F_ConexaoErro: TF_ConexaoErro
       WordWrap = True
       ExplicitLeft = 5
       ExplicitTop = 6
+      ExplicitWidth = 592
+      ExplicitHeight = 110
     end
   end
   object PN_Rodape: TPanel
@@ -49,13 +52,14 @@ object F_ConexaoErro: TF_ConexaoErro
     Width = 600
     Height = 41
     Align = alBottom
+    BevelOuter = bvNone
     TabOrder = 1
     object Btn_ConfiguraConexao: TBitBtn
       AlignWithMargins = True
-      Left = 309
-      Top = 5
+      Left = 308
+      Top = 4
       Width = 144
-      Height = 31
+      Height = 33
       Margins.Left = 4
       Margins.Top = 4
       Margins.Right = 4
@@ -64,13 +68,16 @@ object F_ConexaoErro: TF_ConexaoErro
       Caption = 'Configurar Conex'#227'o'
       TabOrder = 0
       OnClick = Btn_ConfiguraConexaoClick
+      ExplicitLeft = 309
+      ExplicitTop = 5
+      ExplicitHeight = 31
     end
     object Btn_TentarNovamente: TBitBtn
       AlignWithMargins = True
-      Left = 5
-      Top = 5
+      Left = 4
+      Top = 4
       Width = 144
-      Height = 31
+      Height = 33
       Margins.Left = 4
       Margins.Top = 4
       Margins.Right = 4
@@ -79,13 +86,16 @@ object F_ConexaoErro: TF_ConexaoErro
       Caption = 'Tentar Novamente'
       TabOrder = 1
       OnClick = Btn_TentarNovamenteClick
+      ExplicitLeft = 5
+      ExplicitTop = 5
+      ExplicitHeight = 31
     end
     object Btn_FecharSistema: TBitBtn
       AlignWithMargins = True
-      Left = 157
-      Top = 5
+      Left = 156
+      Top = 4
       Width = 144
-      Height = 31
+      Height = 33
       Margins.Left = 4
       Margins.Top = 4
       Margins.Right = 4
@@ -94,6 +104,9 @@ object F_ConexaoErro: TF_ConexaoErro
       Caption = 'Fechar Sistema'
       TabOrder = 2
       OnClick = Btn_FecharSistemaClick
+      ExplicitLeft = 157
+      ExplicitTop = 5
+      ExplicitHeight = 31
     end
   end
   object PN_Topo: TPanel
@@ -102,13 +115,12 @@ object F_ConexaoErro: TF_ConexaoErro
     Width = 600
     Height = 41
     Align = alTop
-    BevelInner = bvRaised
     TabOrder = 2
     object Lbl_MensagemErro: TLabel
       AlignWithMargins = True
-      Left = 5
-      Top = 5
-      Width = 590
+      Left = 4
+      Top = 4
+      Width = 592
       Height = 25
       Align = alTop
       Caption = 'ERRO AO CONECTAR AO BANCO DE DADOS'
@@ -119,6 +131,8 @@ object F_ConexaoErro: TF_ConexaoErro
       Font.Style = [fsBold]
       ParentFont = False
       WordWrap = True
+      ExplicitLeft = 5
+      ExplicitTop = 5
       ExplicitWidth = 386
     end
   end

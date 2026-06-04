@@ -45,6 +45,7 @@ begin
     FrmConfigConexao.ShowModal;
   finally
     FrmConfigConexao.Free;
+    Btn_TentarNovamente.SetFocus;
   end;
 end;
 
@@ -64,6 +65,7 @@ begin
       Lbl_MensagemErroDatabase.Caption := 'Não foi possível se conectar ao Banco de Dados' + sLineBreak +
           'Possível causa: '+ E.Message;
       MessageDlg('Não foi possivel se conectar ao banco de dados', mtError, [mbok], 0);
+      Btn_ConfiguraConexao.SetFocus;
     end;
   end;
 
