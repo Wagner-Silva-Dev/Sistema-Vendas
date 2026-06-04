@@ -4,7 +4,7 @@ object F_ConfiguraConexao: TF_ConfiguraConexao
   BorderIcons = []
   Caption = 'Detectar IP e Configurar Banco de Dados'
   ClientHeight = 250
-  ClientWidth = 684
+  ClientWidth = 590
   Color = clBtnFace
   CustomTitleBar.CaptionAlignment = taCenter
   Font.Charset = DEFAULT_CHARSET
@@ -20,15 +20,16 @@ object F_ConfiguraConexao: TF_ConfiguraConexao
   object PN_Topo: TPanel
     Left = 0
     Top = 0
-    Width = 684
+    Width = 590
     Height = 41
     Align = alTop
     TabOrder = 1
+    ExplicitWidth = 684
     object Lbl_ConfiguraArquivo: TLabel
       AlignWithMargins = True
       Left = 9
       Top = 9
-      Width = 666
+      Width = 572
       Height = 23
       Margins.Left = 8
       Margins.Top = 8
@@ -51,16 +52,18 @@ object F_ConfiguraConexao: TF_ConfiguraConexao
   object PN_Rodape: TPanel
     Left = 0
     Top = 209
-    Width = 684
+    Width = 590
     Height = 41
     Align = alBottom
+    BevelOuter = bvNone
     TabOrder = 2
+    ExplicitTop = 215
     object Btn_Voltar: TBitBtn
       AlignWithMargins = True
-      Left = 5
-      Top = 5
+      Left = 4
+      Top = 4
       Width = 144
-      Height = 31
+      Height = 33
       Margins.Left = 4
       Margins.Top = 4
       Margins.Right = 4
@@ -69,13 +72,16 @@ object F_ConfiguraConexao: TF_ConfiguraConexao
       Caption = 'Voltar'
       TabOrder = 1
       OnClick = Btn_VoltarClick
+      ExplicitLeft = 5
+      ExplicitTop = 5
+      ExplicitHeight = 31
     end
     object Btn_SalvarConexao: TBitBtn
       AlignWithMargins = True
-      Left = 157
-      Top = 5
+      Left = 156
+      Top = 4
       Width = 144
-      Height = 31
+      Height = 33
       Margins.Left = 4
       Margins.Top = 4
       Margins.Right = 4
@@ -84,20 +90,25 @@ object F_ConfiguraConexao: TF_ConfiguraConexao
       Caption = 'Criar Conex'#227'o'
       TabOrder = 0
       OnClick = Btn_SalvarConexaoClick
+      ExplicitLeft = 157
+      ExplicitTop = 5
+      ExplicitHeight = 31
     end
   end
   object PN_Principal: TPanel
     Left = 0
     Top = 41
-    Width = 684
+    Width = 590
     Height = 168
     Align = alClient
+    BevelOuter = bvNone
     TabOrder = 0
+    ExplicitWidth = 684
     DesignSize = (
-      684
+      590
       168)
     object Lbl_IP: TLabel
-      Left = 13
+      Left = 25
       Top = 8
       Width = 118
       Height = 21
@@ -110,8 +121,8 @@ object F_ConfiguraConexao: TF_ConfiguraConexao
       ParentFont = False
     end
     object Lbl_Porta: TLabel
-      Left = 13
-      Top = 37
+      Left = 94
+      Top = 35
       Width = 49
       Height = 21
       Caption = 'Porta: '
@@ -136,8 +147,8 @@ object F_ConfiguraConexao: TF_ConfiguraConexao
       ParentFont = False
     end
     object Lbl_Usuario: TLabel
-      Left = 13
-      Top = 89
+      Left = 76
+      Top = 93
       Width = 67
       Height = 21
       Caption = 'Usu'#225'rio: '
@@ -149,8 +160,8 @@ object F_ConfiguraConexao: TF_ConfiguraConexao
       ParentFont = False
     end
     object Lbl_Senha: TLabel
-      Left = 18
-      Top = 122
+      Left = 88
+      Top = 120
       Width = 55
       Height = 21
       Caption = 'Senha: '
@@ -164,7 +175,7 @@ object F_ConfiguraConexao: TF_ConfiguraConexao
     object EDT_IP: TEdit
       Left = 149
       Top = 6
-      Width = 314
+      Width = 400
       Height = 23
       Anchors = [akLeft, akTop, akRight, akBottom]
       TabOrder = 0
@@ -172,7 +183,7 @@ object F_ConfiguraConexao: TF_ConfiguraConexao
     object EDT_Porta: TEdit
       Left = 149
       Top = 35
-      Width = 314
+      Width = 400
       Height = 23
       Anchors = [akLeft, akTop, akRight, akBottom]
       TabOrder = 1
@@ -180,7 +191,7 @@ object F_ConfiguraConexao: TF_ConfiguraConexao
     object EDT_BancoDados: TEdit
       Left = 149
       Top = 64
-      Width = 314
+      Width = 400
       Height = 23
       Anchors = [akLeft, akTop, akRight, akBottom]
       TabOrder = 2
@@ -188,7 +199,7 @@ object F_ConfiguraConexao: TF_ConfiguraConexao
     object EDT_Usuario: TEdit
       Left = 149
       Top = 93
-      Width = 314
+      Width = 400
       Height = 23
       Anchors = [akLeft, akTop, akRight, akBottom]
       TabOrder = 3
@@ -196,7 +207,7 @@ object F_ConfiguraConexao: TF_ConfiguraConexao
     object EDT_Senha: TEdit
       Left = 149
       Top = 122
-      Width = 314
+      Width = 400
       Height = 23
       Anchors = [akLeft, akTop, akRight, akBottom]
       TabOrder = 4
