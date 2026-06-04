@@ -1,4 +1,4 @@
-object U_ConexaoErro: TU_ConexaoErro
+object F_ConexaoErro: TF_ConexaoErro
   Left = 0
   Top = 0
   BorderIcons = []

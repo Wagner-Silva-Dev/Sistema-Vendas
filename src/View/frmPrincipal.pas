@@ -7,7 +7,7 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Menus;
 
 type
-  TU_Principal = class(TForm)
+  TF_Principal = class(TForm)
     Menu: TMainMenu;
     Cadastros: TMenuItem;
     Empresas: TMenuItem;
@@ -33,7 +33,7 @@ type
   end;
 
 var
-  U_Principal: TU_Principal;
+  F_Principal: TF_Principal;
 
 implementation
 

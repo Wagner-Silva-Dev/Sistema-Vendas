@@ -7,7 +7,7 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls, Vcl.Buttons, IniFiles;
 
 type
-  TU_ConfiguraConexao = class(TForm)
+  TF_ConfiguraConexao = class(TForm)
     PN_Topo: TPanel;
     PN_Rodape: TPanel;
     PN_Principal: TPanel;
@@ -36,13 +36,13 @@ type
   end;
 
 var
-  U_ConfiguraConexao: TU_ConfiguraConexao;
+  F_ConfiguraConexao: TF_ConfiguraConexao;
 
 implementation
 
 {$R *.dfm}
 
-procedure TU_ConfiguraConexao.SalvarIni;
+procedure TF_ConfiguraConexao.SalvarIni;
 var
   IniConf : Tinifile;
 begin
@@ -59,19 +59,19 @@ begin
 end;
 
 
-procedure TU_ConfiguraConexao.Btn_VoltarClick(Sender: TObject);
+procedure TF_ConfiguraConexao.Btn_VoltarClick(Sender: TObject);
 begin
   ModalResult := mrCancel;
 end;
 
-procedure TU_ConfiguraConexao.Btn_SalvarConexaoClick(Sender: TObject);
+procedure TF_ConfiguraConexao.Btn_SalvarConexaoClick(Sender: TObject);
 begin
   SalvarIni;
   ShowMessage('Configurações salvas! Clique em Tentar Novamente');
   ModalResult := mrOk;
 end;
 
-procedure TU_ConfiguraConexao.FormCreate(Sender: TObject);
+procedure TF_ConfiguraConexao.FormCreate(Sender: TObject);
 var
   IniConf : Tinifile;
 begin
@@ -94,7 +94,7 @@ begin
   end;
 end;
 
-procedure TU_ConfiguraConexao.FormKeyPress(Sender: TObject; var Key: Char);
+procedure TF_ConfiguraConexao.FormKeyPress(Sender: TObject; var Key: Char);
 begin
   if Key = #13 then
   begin

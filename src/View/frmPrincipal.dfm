@@ -1,4 +1,4 @@
-object U_Principal: TU_Principal
+object F_Principal: TF_Principal
   Left = 0
   Top = 0
   Caption = 'Sistema de Vendas'

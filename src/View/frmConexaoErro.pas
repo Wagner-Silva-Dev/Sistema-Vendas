@@ -7,7 +7,7 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Buttons, Vcl.ExtCtrls;
 
 type
-  TU_ConexaoErro = class(TForm)
+  TF_ConexaoErro = class(TForm)
     Lbl_MensagemErro: TLabel;
     Btn_ConfiguraConexao: TBitBtn;
     PN_Principal: TPanel;
@@ -27,20 +27,20 @@ type
   end;
 
 var
-  U_ConexaoErro: TU_ConexaoErro;
+  F_ConexaoErro: TF_ConexaoErro;
 
 implementation
 
 uses
-  ConexaoDM, frmConfiguraConexao;
+  DMConexao, frmConfiguraConexao, System.UITypes;
 
 {$R *.dfm}
 
-procedure TU_ConexaoErro.Btn_ConfiguraConexaoClick(Sender: TObject);
+procedure TF_ConexaoErro.Btn_ConfiguraConexaoClick(Sender: TObject);
 var
-  FrmConfigConexao : TU_ConfiguraConexao;
+  FrmConfigConexao : TF_ConfiguraConexao;
 begin
-  FrmConfigConexao := TU_ConfiguraConexao.Create(Self);
+  FrmConfigConexao := TF_ConfiguraConexao.Create(Self);
   try
     FrmConfigConexao.ShowModal;
   finally
@@ -48,12 +48,12 @@ begin
   end;
 end;
 
-procedure TU_ConexaoErro.Btn_FecharSistemaClick(Sender: TObject);
+procedure TF_ConexaoErro.Btn_FecharSistemaClick(Sender: TObject);
 begin
   Application.Terminate;
 end;
 
-procedure TU_ConexaoErro.Btn_TentarNovamenteClick(Sender: TObject);
+procedure TF_ConexaoErro.Btn_TentarNovamenteClick(Sender: TObject);
 begin
   try
     if DM_Conexao.TestarConexao then

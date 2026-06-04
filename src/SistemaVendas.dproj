@@ -132,7 +132,7 @@
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
         <DCCReference Include="View\frmPrincipal.pas">
-            <Form>U_Principal</Form>
+            <Form>F_Principal</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="Utils\DMConexao.pas">
@@ -141,11 +141,15 @@
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
         <DCCReference Include="View\frmConexaoErro.pas">
-            <Form>U_ConexaoErro</Form>
+            <Form>F_ConexaoErro</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="View\frmConfiguraConexao.pas">
-            <Form>U_ConfiguraConexao</Form>
+            <Form>F_ConfiguraConexao</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="View\frmLogin.pas">
+            <Form>F_Login</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Base">

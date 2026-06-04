@@ -1,4 +1,4 @@
-object U_ConfiguraConexao: TU_ConfiguraConexao
+object F_ConfiguraConexao: TF_ConfiguraConexao
   Left = 0
   Top = 0
   BorderIcons = []
