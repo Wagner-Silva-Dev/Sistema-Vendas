@@ -6,7 +6,7 @@ uses
   DMConexao in 'Utils\DMConexao.pas' {DM_Conexao: TDataModule},
   frmConexaoErro in 'View\frmConexaoErro.pas' {F_ConexaoErro},
   frmConfiguraConexao in 'View\frmConfiguraConexao.pas' {F_ConfiguraConexao},
-  frmLogin in 'View\frmLogin.pas' {F_Login};
+  ctrUsuario in 'Controller\ctrUsuario.pas',
 
 {$R *.res}
 

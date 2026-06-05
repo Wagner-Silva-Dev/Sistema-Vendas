@@ -152,6 +152,7 @@
             <Form>F_Login</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="Controller\ctrUsuario.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
