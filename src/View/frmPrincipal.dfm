@@ -12,6 +12,7 @@ object F_Principal: TF_Principal
   Font.Style = []
   Menu = Menu
   WindowState = wsMaximized
+  OnClose = FormClose
   TextHeight = 15
   object Menu: TMainMenu
     Left = 904
