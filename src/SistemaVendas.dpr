@@ -8,7 +8,8 @@ uses
   frmConfiguraConexao in 'View\frmConfiguraConexao.pas' {F_ConfiguraConexao},
   frmLogin in 'View\frmLogin.pas' {F_Login},
   ctrUsuario in 'Controller\ctrUsuario.pas',
-  DMUsuarios in 'Model\DMUsuarios.pas' {DM_Usuarios: TDataModule};
+  DMUsuarios in 'Model\DMUsuarios.pas' {DM_Usuarios: TDataModule},
+  frmHerancaBuscar in 'View\frmHerancaBuscar.pas' {F_HerancaBuscar};
 
 {$R *.res}
 
