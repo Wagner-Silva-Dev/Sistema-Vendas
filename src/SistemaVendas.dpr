@@ -2,6 +2,7 @@ program SistemaVendas;
 
 uses
   Vcl.Forms,
+  System.UITypes,
   frmPrincipal in 'View\frmPrincipal.pas' {F_Principal},
   DMConexao in 'Utils\DMConexao.pas' {DM_Conexao: TDataModule},
   frmConexaoErro in 'View\frmConexaoErro.pas' {F_ConexaoErro},
@@ -18,7 +19,15 @@ begin
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TDM_Conexao, DM_Conexao);
   Application.CreateForm(TDM_Usuarios, DM_Usuarios);
-  Application.CreateForm(TF_Login, F_Login);
   Application.CreateForm(TF_Principal, F_Principal);
+  F_Principal.Hide;
+  F_Login := TF_Login.Create(Application);
+  try
+    if F_Login.ShowModal <> mrOk then
+      Application.Terminate
+    else
   Application.Run;
+  finally
+    F_Login.Free;
+  end;
 end.

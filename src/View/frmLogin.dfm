@@ -12,7 +12,7 @@ object F_Login: TF_Login
   Font.Name = 'Segoe UI'
   Font.Style = []
   KeyPreview = True
-  Position = poMainFormCenter
+  Position = poScreenCenter
   OnKeyPress = FormKeyPress
   TextHeight = 15
   object Lbl_Usuario: TLabel

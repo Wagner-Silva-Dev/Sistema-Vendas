@@ -53,6 +53,7 @@ begin
   else
   begin
     F_Principal.Show;
+    Application.MainFormOnTaskbar := True;
     F_Login.Hide;
   end;
 end;
