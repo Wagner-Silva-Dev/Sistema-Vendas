@@ -27,6 +27,7 @@ type
     Usuarios: TMenuItem;
     Configuracoes: TMenuItem;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure EmpresasClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -38,7 +39,20 @@ var
 
 implementation
 
+uses
+  frmEmpresasBuscar;
+
 {$R *.dfm}
+
+procedure TF_Principal.EmpresasClick(Sender: TObject);
+begin
+  F_EmpresaBuscar := TF_EmpresaBuscar.Create(nil);
+  try
+    F_EmpresaBuscar.ShowModal;
+  finally
+    FreeAndNil(F_EmpresaBuscar);
+  end;
+end;
 
 procedure TF_Principal.FormClose(Sender: TObject; var Action: TCloseAction);
 begin

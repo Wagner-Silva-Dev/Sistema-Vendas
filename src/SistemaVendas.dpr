@@ -10,7 +10,10 @@ uses
   frmLogin in 'View\frmLogin.pas' {F_Login},
   ctrUsuario in 'Controller\ctrUsuario.pas',
   DMUsuarios in 'Model\DMUsuarios.pas' {DM_Usuarios: TDataModule},
-  frmHerancaBuscar in 'View\frmHerancaBuscar.pas' {F_HerancaBuscar};
+  frmHerancaBuscar in 'View\frmHerancaBuscar.pas' {F_HerancaBuscar},
+  frmEmpresasBuscar in 'View\frmEmpresasBuscar.pas' {F_EmpresaBuscar},
+  DMEmpresas in 'Model\DMEmpresas.pas' {DM_Empresas: TDataModule},
+  ctrEmpresas in 'Controller\ctrEmpresas.pas';
 
 {$R *.res}
 
@@ -26,7 +29,7 @@ begin
     if F_Login.ShowModal <> mrOk then
       Application.Terminate
     else
-  Application.Run;
+      Application.Run;
   finally
     F_Login.Free;
   end;

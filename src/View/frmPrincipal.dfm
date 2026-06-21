@@ -21,6 +21,7 @@ object F_Principal: TF_Principal
       Caption = 'Cadastros'
       object Empresas: TMenuItem
         Caption = 'Empresas'
+        OnClick = EmpresasClick
       end
       object Cidades: TMenuItem
         Caption = 'Cidades'

@@ -162,6 +162,16 @@
             <Form>F_HerancaBuscar</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="View\frmEmpresasBuscar.pas">
+            <Form>F_EmpresaBuscar</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Model\DMEmpresas.pas">
+            <Form>DM_Empresas</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="Controller\ctrEmpresas.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
