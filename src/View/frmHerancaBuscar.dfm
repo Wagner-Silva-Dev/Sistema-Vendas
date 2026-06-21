@@ -11,6 +11,7 @@ object F_HerancaBuscar: TF_HerancaBuscar
   Font.Name = 'Segoe UI'
   Font.Style = []
   KeyPreview = True
+  Position = poMainFormCenter
   OnClose = FormClose
   OnKeyDown = FormKeyDown
   OnKeyPress = FormKeyPress
@@ -83,12 +84,10 @@ object F_HerancaBuscar: TF_HerancaBuscar
         Font.Name = 'Segoe UI Semibold'
         Font.Style = [fsBold]
         ParentFont = False
-        ExplicitLeft = 592
-        ExplicitTop = 1
         ExplicitHeight = 17
       end
     end
-    object RG_Buscar: TRadioGroup
+    object RDG_Buscar: TRadioGroup
       Left = 1
       Top = 31
       Width = 320
@@ -96,7 +95,7 @@ object F_HerancaBuscar: TF_HerancaBuscar
       Align = alLeft
       Caption = 'Buscar por: '
       TabOrder = 1
-      OnClick = RG_BuscarClick
+      OnClick = RDG_BuscarClick
     end
     object Btn_Cadastrar: TBitBtn
       AlignWithMargins = True
@@ -135,7 +134,7 @@ object F_HerancaBuscar: TF_HerancaBuscar
       Align = alLeft
       Caption = 'Excluir'
       TabOrder = 4
-      ExplicitLeft = 659
+      OnClick = ExcluirClick
     end
     object Btn_Sair: TBitBtn
       AlignWithMargins = True
@@ -149,7 +148,6 @@ object F_HerancaBuscar: TF_HerancaBuscar
       Caption = 'Sair'
       TabOrder = 5
       OnClick = Btn_SairClick
-      ExplicitTop = 45
     end
   end
   object PN_Principal: TPanel
@@ -166,6 +164,7 @@ object F_HerancaBuscar: TF_HerancaBuscar
       Height = 394
       Align = alClient
       DataSource = DS_Resultado
+      ReadOnly = True
       TabOrder = 0
       TitleFont.Charset = DEFAULT_CHARSET
       TitleFont.Color = clWindowText

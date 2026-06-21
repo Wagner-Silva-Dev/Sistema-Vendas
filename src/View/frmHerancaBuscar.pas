@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, Data.DB,
-  Vcl.Grids, Vcl.DBGrids, Vcl.Buttons, Vcl.Menus;
+  Vcl.Grids, Vcl.DBGrids, Vcl.Buttons, Vcl.Menus, System.UITypes;
 
 type
   TF_HerancaBuscar = class(TForm)
@@ -16,7 +16,7 @@ type
     Lbl_Pesquisa: TLabel;
     PN_RTopo: TPanel;
     DBG_Buscar: TDBGrid;
-    RG_Buscar: TRadioGroup;
+    RDG_Buscar: TRadioGroup;
     Btn_Cadastrar: TBitBtn;
     Btn_Alterar: TBitBtn;
     Btn_Excluir: TBitBtn;
@@ -41,12 +41,13 @@ type
     procedure ExcluirClick(Sender: TObject);
     procedure EDT_BuscarKeyPress(Sender: TObject; var Key: Char);
     procedure Btn_SairClick(Sender: TObject);
-    procedure RG_BuscarClick(Sender: TObject);
+    procedure RDG_BuscarClick(Sender: TObject);
   private
-    procedure BuscarDados;
+
 
   protected
-    procedure ExcluirRegistro; virtual;
+    procedure BuscarDados;
+    function ExcluirRegistro : Boolean; virtual;
   public
     { Public declarations }
   end;
@@ -64,7 +65,7 @@ begin
   EDT_Buscar.SetFocus;
 end;
 
-procedure TF_HerancaBuscar.RG_BuscarClick(Sender: TObject);
+procedure TF_HerancaBuscar.RDG_BuscarClick(Sender: TObject);
 begin
   EDT_Buscar.SetFocus;
 end;
@@ -81,13 +82,13 @@ begin
   then
     Exit;
 
-  ExcluirRegistro;
-  Self.BuscarDados;
+  if ExcluirRegistro then
+    Self.BuscarDados;
 end;
 
-procedure TF_HerancaBuscar.ExcluirRegistro;
+function TF_HerancaBuscar.ExcluirRegistro : Boolean;
 begin
-  // implementado pelos forms herdados
+  Result := True;
 end;
 
 procedure TF_HerancaBuscar.EDT_BuscarChange(Sender: TObject);
@@ -97,8 +98,6 @@ end;
 
 procedure TF_HerancaBuscar.BuscarDados;
 begin
-  Lbl_Registros.Caption := 'Registros encontrados : 000000';
-
   if (DS_Resultado.DataSet = nil) or (DS_Resultado.DataSet.IsEmpty) then
     Exit;
 
@@ -136,6 +135,7 @@ end;
 
 procedure TF_HerancaBuscar.AtualizarClick(Sender: TObject);
 begin
+  DS_Resultado.DataSet.Refresh;
   Self.BuscarDados;
 end;
 
@@ -168,6 +168,12 @@ begin
 
     VK_ESCAPE:
       Btn_Sair.Click;
+  end;
+
+  if(Key in[VK_F1..VK_F12])then
+  begin
+    if(RDG_Buscar.Items.Count >= Key - VK_F1)then
+      RDG_Buscar.ItemIndex := Key - VK_F1;
   end;
 end;
 
